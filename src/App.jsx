@@ -1,4 +1,4 @@
-import { Home } from "lucide-react";
+import Home from "./pages/Home.jsx";
 import Menubar from "./components/Menubar.jsx";
 
 const App =()=> {

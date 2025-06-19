@@ -1,4 +1,6 @@
 import logo from './logo.png'
+import video_banner from './home-page-banner.mp4'
 export const assets = {
-    logo
+    logo,
+    video_banner
 }
