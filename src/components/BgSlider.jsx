@@ -17,7 +17,7 @@ const BgSlider = () => {
     {/*section title*/}
 
     <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
-       Pixel-Perfect Perfection
+       Pixel-Perfect <span className="bg-gradient-to-r from-purple-500 to-indigo-500 bg-clip-text text-transparent">Perfection</span>
     </h2>
 
 
