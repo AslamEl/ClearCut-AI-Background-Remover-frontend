@@ -1,6 +1,7 @@
 import {useState} from "react";
 import {assets} from "../assets/assets.js";
-import {Menu,X} from "lucide-react";
+import { Link } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 const Menubar=()=>{
 
@@ -9,14 +10,14 @@ const Menubar=()=>{
     return (
         <nav className="bg-white px-8 py-4 flex justify-between items-center">
             {/* left side logo and text*/}
-             <div className="flex items-center space-x-2">
+             <Link className="flex items-center space-x-2" to="/">
                 <img src={assets.logo} alt="logo" className="h-8 w-8 object-contain cursor-pointer"/>
                 <span className="text-xl font-semibold bg-gradient-to-r from-indigo-600 to-purple-600 bg-clip-text text-transparent cursor-pointer">
                 Clear<span className="text-gray-400 cursor-pointer">Cut</span>
 
                 </span>
 
-            </div>
+            </Link>
             {/* Right side Action button */}
             <div className="hidden md:flex items-center space-x-4">
                 <button className="text-gray-700 font-medium cursor-pointer

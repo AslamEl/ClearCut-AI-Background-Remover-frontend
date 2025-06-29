@@ -6,7 +6,7 @@ const Testimonials = () => {
   return (
     <div className="max-w-7xl px-4 mx-auto sm:px-6 lg:px-8 py-12">
         {/*Title section */}
-        <h2 className='text-3xl md:text-4xl font bold text-gray-900 mb-12 text-center '>
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-12 text-center">
             They did it. You can too.
         </h2>
 

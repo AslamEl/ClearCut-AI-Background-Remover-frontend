@@ -1,7 +1,7 @@
 const TryNow = () => {
     return (
         <div className="flex flex-col items-center justify-center bg-white px-4">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-7 text-center">
                 Remove Image Background.
             </h2>
             <p className="text-gray-500 mb-8 text-center">
