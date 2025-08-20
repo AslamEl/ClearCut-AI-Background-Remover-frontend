@@ -2,17 +2,33 @@ import {useState} from "react";
 import {assets} from "../assets/assets.js";
 import { Link } from "react-router-dom";
 import { Menu,X } from "lucide-react";
-import { SignedIn, SignedOut, SignIn, useClerk, UserButton } from "@clerk/clerk-react";
+import { SignedIn, SignedOut, SignIn, useAuth, useClerk, UserButton, useUser } from "@clerk/clerk-react";
 
 const Menubar=()=>{
 
     const [menuOpen,setMenuOpen]=useState(false);
     const {openSignIn,openSignUp}=useClerk();
+    const {user} = useUser();
+    const {getToken} = useAuth();
+
+
+
     const openRegister=()=>{
+        setMenuOpen(false);
         openSignUp({});
+
+
+    }
+
+    const getData = async() =>
+    {
+        const token =await getToken();
+        console.log(token);
+        console.log(user.id);
 
     }
     const openLogin=()=>{
+        setMenuOpen(false);
         openSignIn({});
 
     }
@@ -41,6 +57,19 @@ const Menubar=()=>{
                 </button>
                 </SignedOut>
                 <SignedIn>
+                    <div className="flex items-center gap-2 sm:gap-3">
+                        <button className="flex items-center gap-2 bg-blue-100 px-4 sm:px-5 py-1.5 sm:py-2.5 rounded-full hover:scale-105 
+                                            transition-all duration-500 cursor-pointer">
+                        <img src={assets.dollar} alt="credits" height={24} width={24}/>
+                         <p className="text-xs sm:text-sm font-medium text-gray-600">
+                             Credits: 0
+                         </p>
+                         </button>
+                         <button onClick={getData}>Get the data</button>
+                         <p className="text-gray-600 max-sm:hidden">
+                            Hi, {user?.fullName}
+                         </p>
+                    </div>
                     <UserButton/>
                 </SignedIn>
             </div>
@@ -65,6 +94,16 @@ const Menubar=()=>{
                     </SignedOut>
 
                     <SignedIn>
+                        <div className="flex items-center gap-2 sm:gap-3">
+                        <button className="flex items-center gap-2 bg-blue-100 px-4 py-1.5 sm:py-2.5 rounded-full hover:scale-105 
+                                            transition-all duration-500 cursor-pointer">
+                        <img src={assets.dollar} alt="credits" height={24} width={24}/>
+                         <p className="text-xs sm:text-sm font-medium text-gray-600">
+                             Credits: 0
+                         </p>
+                         </button>
+                        
+                        </div>
                         <UserButton/>
                     </SignedIn>
                     </div>
