@@ -1,8 +1,9 @@
-import {useState} from "react";
+import {useContext, useState} from "react";
 import {assets} from "../assets/assets.js";
 import { Link } from "react-router-dom";
 import { Menu,X } from "lucide-react";
 import { SignedIn, SignedOut, SignIn, useAuth, useClerk, UserButton, useUser } from "@clerk/clerk-react";
+import { AppContext } from "../context/AppContext.jsx";
 
 const Menubar=()=>{
 
@@ -10,6 +11,7 @@ const Menubar=()=>{
     const {openSignIn,openSignUp}=useClerk();
     const {user} = useUser();
     const {getToken} = useAuth();
+    const {credit}=useContext(AppContext);
 
 
 
@@ -20,13 +22,6 @@ const Menubar=()=>{
 
     }
 
-    const getData = async() =>
-    {
-        const token =await getToken();
-        console.log(token);
-        console.log(user.id);
-
-    }
     const openLogin=()=>{
         setMenuOpen(false);
         openSignIn({});
@@ -62,10 +57,10 @@ const Menubar=()=>{
                                             transition-all duration-500 cursor-pointer">
                         <img src={assets.dollar} alt="credits" height={24} width={24}/>
                          <p className="text-xs sm:text-sm font-medium text-gray-600">
-                             Credits: 0
+                             Credits: {credit}
                          </p>
                          </button>
-                         <button onClick={getData}>Get the data</button>
+                         
                          <p className="text-gray-600 max-sm:hidden">
                             Hi, {user?.fullName}
                          </p>
@@ -99,7 +94,7 @@ const Menubar=()=>{
                                             transition-all duration-500 cursor-pointer">
                         <img src={assets.dollar} alt="credits" height={24} width={24}/>
                          <p className="text-xs sm:text-sm font-medium text-gray-600">
-                             Credits: 0
+                             Credits: {credit}
                          </p>
                          </button>
                         
