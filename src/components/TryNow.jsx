@@ -1,5 +1,12 @@
+import { useContext } from "react";
+import { AppContext } from "../context/AppContext";
+
 const TryNow = () => {
+
+    const {removeBg}=useContext(AppContext);
     return (
+
+        
         <div className="flex flex-col items-center justify-center bg-white px-4">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-7 text-center">
                 Remove Image Background.
@@ -8,7 +15,7 @@ const TryNow = () => {
                 Get a transparent background for any image.
             </p>
             <div className="bg-white rounded-5x1 shadow-lg p-10 flex flex-col items-center space-y-4">
-                <input type="file" id="upload2" hidden accept="image/*" />
+                <input type="file" id="upload2" hidden accept="image/*" onChange={(e)=>removeBg(e.target.files[0])}/>
                 <label htmlFor="upload2"
                 className="bg-gradient-to-r from-purple-500 to-indigo-500 shadow-lg
                 hover:from-purple-600 hover:to-indigo-600 text-white font-semibold

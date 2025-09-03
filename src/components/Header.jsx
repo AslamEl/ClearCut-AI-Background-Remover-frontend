@@ -1,14 +1,17 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
+import { AppContext } from '../context/AppContext'
 
 const Header = () => {
+
+  const {removeBg}=useContext(AppContext);
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 items-center mb-16">
 
         {/*Left side: vedio banner */ }
 
         <div className="order-2 md:order-1 flex justify-center">
-            <div class="shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] rounded-3xl overflow-hidden">
+            <div className="shadow-[0_25px_50px_-12px_rgba(0,0,0,0.15)] rounded-3xl overflow-hidden">
                 <video src={assets.video_banner} autoPlay loop muted className="w-full max-w-[400px] h-auto object-cover rounded-4xl"/>
             </div>
          </div>
@@ -28,7 +31,7 @@ const Header = () => {
             and watch the magic happen.
           </p>
           <div>
-            <input type="file" accept='image/*' id='upload1' hidden/>
+            <input type="file" accept='image/*' id='upload1' hidden onChange={(e)=>removeBg(e.target.files[0])}/>
             <label
                  htmlFor="upload1"
                            className="bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold px-10 py-4 rounded-full shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 text-lg cursor-pointer">
